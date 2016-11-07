@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+int transformation_x2 (int *Pa, int *Pb, int *Pc);
+
+// Prototype de la fonction, permet au compilateur de savoir qu'elle est presente.
+
+
+
+void main()
+// On utilise une fonction void car elle ne renvoit rien, elle utilise seulement une fonction secondaire.
+{
+
+    int a, b, c;
+    // On definit les variables.
+    int *Pa, *Pb, *Pc = NULL;
+    // On initialise les pointeurs (le NULL permet d'effacer d'eventuel adresse provenant d'autre programme).
+
+
+    printf("Veuillez entrer a, b et c.\n");
+    scanf("%d",&a);
+    scanf("%d",&b);
+    scanf("%d",&c);
+    // Ici on donne des valeurs aux variables.
+
+
+    Pa = &a;
+    Pb = &b;
+    Pc = &c;
+    // Si on place un symbole '&' devant une variable, on obtient son adresse au lieu de sa valeur.
+    // Les pointeurs prennent donc pour valeur les adresses de a, b et c.
+
+
+    printf("\na vaut %d, b vaut %d, c vaut %d\n", *Pa, *Pb, *Pc);
+    // On affiche les pointeurs avec '*' pour qu'ils donnent une valeurs et non une adresse.
+    printf("On va multiplier par 2 les nombres a, b et c.\n");
+    Sleep(1000);
+    // On affiche a, b et c.
+
+
+    transformation_x2(Pa, Pb, Pc);
+    // On envoie ici a la fonction secondaire les adresses des variables. (On aurait pu ecrire (&a, &b, &c).
+
+    printf("\npres transformation, a vaut %d, b vaut %d, c vaut %d\n", *Pa, *Pb, *Pc);
+    // On affiche les variables contenue dans les pointeurs envoyé par la fonction secondaire.
+}
+
+
+
+int transformation_x2 (int *Pa, int *Pb, int *Pc)
+// Le symbole '*' devant un pointeur signifie que l'on affiche la valeur de la varible stockée a l'adresse de ce pointeur.
+// La fonction utilise donc les variables stocké dans les pointeurs envoyé precedemment.
+{
+
+    *Pa = *Pa*2;
+    *Pb = *Pb*2;
+    *Pc = *Pc*2;
+    // On effectue les calculs.
+
+    return *Pa, *Pb, *Pc;
+    // On renvoie ensuite les pointeurs, on place bien une '*' devant pour preciser que ce sont les valeurs que l'on renvoit.
+}
