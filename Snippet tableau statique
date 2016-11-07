@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    int i;
+    int tableau [3] //remplacer le 3 par la taille souhaité
+
+    tableau[0] = 10; //ajouter autant de tableau[] que la taille du tableau
+    tableau[1] = 10;
+    tableau[2] = 10;
+
+    for (i =0; i < 3; i++) //remplacer le 3 par la taille souhaité
+    {
+        printf("La valeur du tableau sur l'indice %d : %d\n", i, tableau [i]);
+    }
+
+    return 0;
+}
